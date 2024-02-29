@@ -8,14 +8,20 @@ $(function () {
     let movie = $('#title').val();
     let rating = $('#rating').val();
 
+    // append movies to page
     let movieInfo = { movie, rating };
     const movieTable = createMovieTable(movieInfo);
 
     moviesList.push(movieInfo);
 
     $('#movie-list').append(movieTable);
+
+    // reset form after submitting
     $('#movie-form').trigger('reset');
-    console.log(movieTable);
+  });
+
+  $('tbody').on('click', '.btn', function (e) {
+    $(e.target).closest('tr').remove();
   });
 });
 
